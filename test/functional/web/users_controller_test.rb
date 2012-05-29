@@ -1,27 +1,27 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionController::TestCase
+class Web::UsersControllerTest < ActionController::TestCase
   setup do
     @user = FactoryGirl.create(:user)
     sign_in @user
   end
 
-  test "should return index page" do
+  test "should get index" do
     get :index
     assert_response :success
   end
   
-  test "should return user page" do
+  test "should get user" do
     get :show, id: @user.id
     assert_response :success
   end
   
-  test "should return edit page" do
+  test "should get edit page" do
     get :edit, id: @user.id
     assert_response :success
   end
   
-  test "should return signup page" do
+  test "should get signup page" do
     get :new
     assert_response :success
   end

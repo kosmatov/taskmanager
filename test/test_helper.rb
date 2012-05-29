@@ -10,7 +10,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-  include SessionsHelper
+  include AuthHelper
 #  include AuthHelper
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #

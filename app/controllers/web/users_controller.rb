@@ -1,40 +1,42 @@
-class UsersController < ApplicationController
+class Web::UsersController < Web::ApplicationController
   def index
-    @users = User.page(params[:page]).per(21)
-    @title = t 'titles.user.index'
+    @users = User.page(params[:page])
+    title t_t :index
   end
 
   def new
     @user = User.new
-    @title = t 'titles.user.new'
+    title t_t :new
   end
 
   def show
     @user = User.find(params[:id])
-    @title = @user.name
+    title @user.name
   end
 
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to @user, notify: t('flash.user.welcome')
+      flash[:success] = f_t :welcome
+      redirect_to @user
     else
-      @title = t 'titles.user.new'
+      title t_t :new
       render :new
     end
   end
 
   def edit
     @user = current_user
-    @title = t 'titles.user.edit'
+    title t_t :edit
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to @user, notice: t('flash.user.updated')
+      flash[:success] = f_t :updated
+      redirect_to @user
     else
-      @title = t 'titles.user.edit'
+      title t_t :edit
       render :edit
     end
   end
@@ -42,10 +44,10 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     if current_user?(user)
-      flash[:error] = t 'flash.user.error_destroy_self'
+      flash[:error] = f_t :error_destroy_self
     else
       user.destroy
-      flash[:success] = t 'flash.user.destroyed'
+      flash[:success] = f_t :destroyed
     end
     redirect_to users_path
   end

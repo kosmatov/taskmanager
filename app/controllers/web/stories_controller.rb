@@ -1,31 +1,33 @@
-class StoriesController < ApplicationController
+class Web::StoriesController < Web::ApplicationController
   def new
     @story = Story.new
-    @title = t 'titles.story.new'
+    @title = t_t 'new'
   end
 
   def show
     @story = Story.find(params[:id])
+    @title = @story.content
   end
 
   def create
     @story = current_user.stories_out.build(params[:story])
     if @story.save
-      redirect_to @story, notice: t('flash.story.create')
+      flash[:success] = f_t 'create'
+      redirect_to @story
     else
-      flash[:warning] = t 'flash.story.error'
+      flash[:warning] = f_t 'error'
       render :new
     end
   end
 
   def update
     story = Story.find(params[:id])
-    story.state_event = params[:state_event] if story
+    story.state_event = params[:state_event]
 
     if story.save
-      flash[:info] = t "flash.story.state_#{story.state}"
+      flash[:success] = f_t "state_#{story.state}"
     else
-      flash[:error] = t 'flash.story.update_error'
+      flash[:error] = f_t 'update_error'
     end
 
     redirect_to story
@@ -34,6 +36,7 @@ class StoriesController < ApplicationController
   def destroy
     story = Story.find(params[:id])
     story.destroy
-    redirect_to current_user, notice: t('flash.story.destroyed')
+    flash[:success] = f_t :destroyed
+    redirect_to current_user
   end
 end

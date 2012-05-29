@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    content 'My comment'
+    content { generate :string }
     story
     user
   end

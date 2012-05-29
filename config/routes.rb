@@ -1,9 +1,12 @@
 Taskmanager::Application.routes.draw do
-  resources :users
-  resources :stories do
-    resources :comments, :only => [:create]
-  end
-  resource :session, :only => [:new, :create, :destroy]
+  scope :module => :web do
+    root :to => 'welcome#index'
 
-  root :to => 'welcome#index'
+    resources :stories do
+      resources :comments, :only => [:create]
+    end
+
+    resources :users
+    resource :session, :only => [:new, :create, :destroy]
+  end
 end

@@ -1,6 +1,6 @@
-class SessionsController < ApplicationController
+class Web::SessionsController < Web::ApplicationController
   def new
-    @title = t 'titles.session.new'
+    title t_t :new
   end
 
   def create
@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to user
     else
-      flash.now[:error] = t 'flash.session.error'
-      @title = t 'titles.session.new'
+      flash.now[:error] = f_t :error
+      title t_t :new
       render :new
     end
   end
