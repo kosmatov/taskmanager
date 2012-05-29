@@ -1,0 +1,15 @@
+.well
+  .page-header
+    %h1
+      = t('titles.story.new')
+  = simple_form_for(@story, url: stories_path, html: { class: 'form-horizontal' }) do |f|
+    .row
+      .span2
+        %br/
+      .span9
+        = f.input :content, as: :text, input_html: { rows: "", cols: "" }
+        = f.association :owner, include_blank: false
+    .form-actions
+      .span2
+        %br/
+      = f.button :submit, t('helpers.submit.story.create')

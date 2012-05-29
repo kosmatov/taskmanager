@@ -1,0 +1,10 @@
+%li
+  - if current_user.admin? && ! current_user?(user)
+    = link_to "×", user, :method => :delete,      |
+      :class => "delete",                         |
+      :confirm => I18n.t("messages.user.delete"), |
+      :title => I18n.t("titles.user.delete")      |
+  %a{:href => user_path(user)}
+    %b
+    = gravatar_for user, :size => 128
+    %span= user.name

@@ -1,0 +1,29 @@
+development:
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  username: postgres
+  password: 123654
+  database: taskmanager_dev
+  schema_search_path: public
+  encoding: utf8
+
+test:
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  username: postgres
+  password: 123654
+  database: taskmanager_test
+  schema_search_path: public
+  encoding: utf8
+
+production:
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  username: postgres
+  password: 123654
+  database: taskmanager
+  schema_search_path: public
+  encoding: utf8

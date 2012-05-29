@@ -1,0 +1,91 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        password: 'Пароль'
+        email: 'Адрес электронной почты'
+        name: 'Имя'
+        password_confirmation: 'Повтор пароля'
+      story:
+        content: 'Содержание задачи'
+      comment:
+        content: 'Ваш комментарий'
+  hello: "Привет"
+  flash:
+    user:
+      welcome: "Добро пожаловать!"
+      updated: "Профиль успешно обновлен!"
+      error_destroy_self: "Вы не можете удалить самого себя!"
+      destroyed: "Пользователь удален."
+    session:
+      error: "Ошибка входа."
+      signin: "Вы должны войти."
+    story:
+      error: "Задача не добавлена."
+      create: "Задача успешно добавлена!"
+      destroyed: "Задача удалена."
+      state_accepted: "Вы приняли задачу."
+      state_rejected: "Вы отклонили задачу."
+      state_started: "Вы начали выполнять задачу."
+      state_finished: "Вы завершили задачу."
+      update_error: "При изменениии состояния задачи произошла ошибка."
+    comment:
+      created: 'Комментарий добавлен.'
+      error: 'При добавлении комментария возникла ошибка. Повторите попытку.'
+  titles:
+    user:
+      index: "Пользователи"
+      new: "Регистрация"
+      profile: "Профиль"
+      mypage: "Моя страница"
+      gravatar_edit: "Изменить аватар"
+      profile_edit: "Редактировать профиль"
+      edit: "Изменение профиля"
+      settings: "Настройки"
+      delete: "Удалить пользователя"
+      stories: "Задачи"
+      instories: "Входящие"
+      outstories: "Исходящие"
+    session:
+      new: "Вход"
+      destroy: "Выход"
+    story:
+      created: ""
+      new: "Новая задача"
+      delete: "Удалить"
+      menu_new: "Новые"
+      accept: "Принять"
+      menu_accepted: "Принятые"
+      reject: "Отклонить"
+      state_rejected: "Задача отклонена"
+      menu_rejected: "Отклоненные"
+      start: "Начать"
+      menu_started: "Начатые"
+      finish: "Завершить"
+      menu_finished: "Завершенные"
+      state_finished: "Задача завершена"
+      state_any: "Любое состояние"
+      comments: "Комментарии"
+    welcome:
+      index: "Главная"
+      try: "Попробовать"
+  helpers:
+    submit:
+      user:
+        create: "Зарегистрироваться"
+        update: "Обновить профиль"
+      session:
+        create: "Войти"
+        destroy: "Выйти"
+      story:
+        create: "Поставить задачу"
+      comment:
+        create: "Отправить"
+  messages:
+    user:
+      delete: "Точно удалить пользователя?"
+    story:
+      delete: "Точно удалить задачу?"
+  will_paginate:
+    previous_label: "&larr; Назад"
+    next_label: "Еще &rarr;"

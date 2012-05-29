@@ -1,0 +1,77 @@
+/*
+ *= require bootstrap_and_overrides
+ */
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .span7 {width: 396px}
+}
+
+.navbar-fixed-top .brand {color:#61A6C9; text-shadow: 0 -1px 0 rgba(0, 0, 0, 1)}
+.navbar-fixed-top div.btn-group {float:right}
+.navbar-fixed-top form {float:right; margin:6px 0 0}
+	.navbar-fixed-top form .btn-group {margin:0}
+.hero-unit h1 {margin-bottom:14px}
+.hero-unit p + p {text-align:center; margin-top:30px}
+.hero-unit .btn {font-size:30px}
+
+.tree {min-height:1000px}
+
+footer {padding-bottom:90px}
+	footer a.top {text-decoration:none; outline:none; float:right}
+		footer a.top span {border-bottom:dotted 1px}
+	footer .nav-pills {text-align:center}
+		footer .nav-pills li {display:inline-block; float:none}
+
+.alert .close {border:0; background:none}
+
+.float-right {float:right}
+.float-left {float:left}
+.nowrap {white-space:nowrap}
+
+ul.users {margin-left:17px}
+ul.users li {position:relative; margin: 0 0 1px 1px; float:left}
+	ul.users a span {display:block; width:100%; text-align:center; position:absolute; left:0; bottom:0; color:#fff; z-index:20}
+	ul.users a b {display:block; position:absolute; top:0; left:0; right:0; bottom:0; background:#000; opacity:.6; z-index:10; width:100%; height:100%}
+		ul.users a:hover {text-decoration:none}
+			ul.users a:hover b, ul.users a:hover span {opacity:0}
+a.delete {display:none; position:absolute; top:0; right:4px; font-size:1.35em; color:#999; z-index:30}
+ul.users li:hover a.delete {display:block}
+	ul.users li:hover a.delete:hover {color:#f00}
+
+.gravatar + .span5 h1 {padding-top:10px}
+.gravatar a:hover {text-decoration:none}
+	.gravatar a:hover span {text-decoration:underline}
+.span1.gravatar {min-width:100px}
+
+ul.nav-list {border-top:solid 1px #e2e2e2; padding:15px 0}
+  ul.nav-list li {position:relative}
+    ul.nav-list li small {position:absolute; right:10px; bottom:.25em; color:#555; text-shadow: 1px 1px 1px rgba(255, 255, 255, .25)}
+
+ul.stories {padding-right:10px}
+ul.stories li {padding:9px 5px; width:100%; border-top:solid 1px #fff; border-bottom:solid 1px #e2e2e2; float:left; clear:both; position:relative}
+  ul.stories li > div {margin-left:75px; font-size:14px}
+  ul.stories li p {margin:0}
+  ul.stories li span, ul.stories li span a, ul.stories li small {color:#777}
+  ul.stories .gravatar {float:left; margin-left:-75px}
+  ul.stories li small {position:absolute; top:0; right:5px; font-size:12px}
+  ul.stories li a.comments {line-height:30px; font-style:italic; font-size:12px}
+  ul.stories li div.comments {display:none; padding:5px; clear:both}
+  ul.stories li ul {clear:both; width:100%}
+    ul.stories li ul li > div {margin-left:45px}
+    ul.stories li ul .gravatar {margin-left:-45px}
+  ul.stories textarea {margin-top:10px; width:90%}
+li.accepted {background:#DFDCEF}
+li.rejected {background:#FFDFE5}
+li.started {background:#D3DFFF}
+li.finished {background:#D5EED5}
+
+div.clear {clear:both}
+
+.story-form {margin:15px 0; padding:15px 10px 0 0}
+  .story-form textarea {width:100%}
+  .story-form select {max-width:100%}
+  .story-form .input-prepend {display:block}
+  .story-form .alert {padding:10px; margin:0 0 15px -6px; width:100%}
+
+.stories li .btn-group {float:right; margin:5px 0 0 10px}
+  .stories li .btn-group span {font-size:12px; text-shadow:1px 1px 1px rgba(255, 255, 255, .75)}

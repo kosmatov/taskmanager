@@ -1,0 +1,51 @@
+#!/bin/sh
+
+start () {
+
+  gem=`ls | grep Gemfile`
+  if [ -z "$gem" ]; then
+    echo "You must run this script from rails app directory."
+    echo "Current directory "`pwd`
+  else
+    echo "Starting rails app from "`pwd`
+    rvmsudo rails s -p 80 -d
+#    echo "Starting spork"
+#    spork &
+#    sleep 10
+    echo "OK"
+  fi
+}
+
+kill_all () {
+
+  ps ax | grep $1 | grep ruby | awk '{print $1}' | {
+  while read pid; do
+    echo "Waiting for PID: $pid"
+    rvmsudo kill -9 $pid
+  done
+  }
+}
+
+stop () {
+  echo "Stopping rails apps"
+  kill_all rails
+#  echo "Stopping spork"
+#  kill_all spork
+}
+
+case $1 in
+  start)
+    start
+  ;;
+  stop)
+    stop
+  ;;
+  restart)
+    stop
+    start
+  ;;
+  *)
+    echo "Usage: $0 (start|restart|stop)"
+  ;;
+esac
+

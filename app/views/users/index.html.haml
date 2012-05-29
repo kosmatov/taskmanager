@@ -1,0 +1,7 @@
+.well
+  .page-header
+    %h1= @title
+  .row
+    %ul.users.unstyled
+      = render @users
+  = paginate @users

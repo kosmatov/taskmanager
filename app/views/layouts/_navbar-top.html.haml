@@ -1,0 +1,22 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      = link_to logo, root_path, :class => "brand"
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .nav-collapse.collapse
+        %ul.nav
+          - if signed_in?
+            %li= link_to t('titles.user.stories'), user_path(current_user)
+            %li= link_to t('titles.user.index'), users_path
+          - else
+            %li= link_to t('titles.welcome.index'), root_path
+            %li= link_to t('titles.user.new'), new_user_path
+      .btn-group
+        - if signed_in?
+          = link_to t('titles.user.settings'), edit_user_path(current_user), :class => "btn btn-primary"
+          = link_to t('titles.session.destroy'), session_path, :method => :delete, :class => "btn btn-primary"
+        - else
+          = link_to t('titles.session.new'), new_session_path, :class => "btn btn-primary"

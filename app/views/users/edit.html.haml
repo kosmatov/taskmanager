@@ -1,0 +1,19 @@
+.well
+  .page-header
+    %h1= @title
+  .row
+    .span4
+      %br/
+  = simple_form_for(@user, :html => {:class => 'form-horizontal' }) do |f|
+    = render 'shared/error_messages', :object => f.object
+    .row
+      .span2.gravatar
+        %p
+          %a{:href => "http://gravatar.com/emails", :target => "_blank"}
+            = gravatar_for @user, :size => 100
+            %span.nowrap= I18n.t("titles.user.gravatar_edit")
+      = render 'fields', :f => f
+    .form-actions
+      .span2
+        %br/
+      = f.button :submit

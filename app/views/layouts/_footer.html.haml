@@ -1,0 +1,7 @@
+%footer.footer
+  %ul.nav.nav-pills
+    %li= link_to I18n.t("titles.welcome.index"), root_path
+    - if signed_in?
+      %li= link_to I18n.t("titles.user.index"), users_path
+    - else
+      %li= link_to I18n.t("titles.user.new"), new_session_path

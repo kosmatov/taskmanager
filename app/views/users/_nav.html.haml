@@ -1,0 +1,8 @@
+%ul.nav.nav-list
+  %li
+    \#{link_to t('titles.story.state_any'), user_path(@user)}
+    %small
+    - ['new', 'accepted', 'rejected', 'started', 'finished'].each do |state|
+      %li
+        \#{link_to t('titles.story.menu_' + state), user_path(@user, :state => state)}
+        %small

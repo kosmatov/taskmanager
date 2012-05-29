@@ -1,0 +1,54 @@
+%li{:class => story.state}
+  %div
+    %a{:href => user_path(story.owner)}
+      = gravatar_for story.owner, :size => 64, :class => :gravatar
+      %strong= story.owner.name
+    %span
+      \&nbsp;&rarr;&nbsp;#{link_to story.user.name, user_path(story.user)}
+    %small
+      = time_ago_in_words(story.created_at)
+    %p= story.content
+    = link_to I18n.t('titles.story.comments') + ' (' + story.comments.count.to_s + ')', |
+      '#',                                                                         |
+      :class => 'comments'                                                         |
+    - if current_user?(story.user)
+      .btn-group
+        - if story.new?
+          = link_to I18n.t("titles.story.accept"),         |
+            story_path(story, :state_event => :accepting), |
+            :method => :put,                               |
+            :class => "btn btn-mini btn-success"           |
+          -#
+          = link_to I18n.t("titles.story.reject"),         |
+            story_path(story, :state_event => :rejecting), |
+            :method => :put,                               |
+            :class => "btn btn-mini btn-danger"            |
+        - elsif story.accepted?
+          = link_to I18n.t("titles.story.start"),         |
+            story_path(story, :state_event => :starting), |
+            :method => :put,                              |
+            :class => "btn btn-mini btn-primary"          |
+        - elsif story.started?
+          = link_to I18n.t("titles.story.finish"),         |
+            story_path(story, :state_event => :finishing), |
+            :method => :put,                               |
+            :class => "btn btn-mini btn-info"              |
+    - if current_user?(story.owner)
+      .btn-group
+        = link_to I18n.t("titles.story.delete"), story, |
+          :method => :delete,                           |
+          :confirm => I18n.t("messages.story.delete"),  |
+          :class => "btn btn-mini btn-danger"           |
+    - if story.rejected?
+      .btn-group
+        %span
+          = I18n.t("titles.story.state_rejected")
+    - elsif story.finished?
+      .btn-group
+        %span
+          = I18n.t("titles.story.state_finished")
+  %div.comments
+    - unless story.comments.empty?
+      %ul.unstyled
+        = render story.comments
+    = render 'comments/form', :story => story
